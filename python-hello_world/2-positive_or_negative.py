@@ -5,6 +5,5 @@ if number > 0:
     f'{number} is positive'
 elif number == 0:
     f'{number} is 0'
-else:
+elif number < 0:
     f'{number} is negative'
-    
