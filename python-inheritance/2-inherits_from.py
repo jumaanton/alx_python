@@ -4,5 +4,7 @@
 """
 
 def inherits_from(obj, a_class):
-    """ my func definition """
-    return isinstance(obj, a_class)
+    """ 
+        my func definition 
+    """
+    return issubclass(type(obj), a_class) and type(obj) is not a_class
