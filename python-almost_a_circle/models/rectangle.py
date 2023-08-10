@@ -37,14 +37,28 @@ class Rectangle(Base):
 
 
     """ public method display"""
+    # def display(self):
+    #     """
+    #     Prints the rectangle to stdout using the '#' character.
+    #     """
+    #     print('\n' * self.y, end='')
+    #     for i in range(self.height):
+    #         print(' ' * self.x, end='')
+    #         print('#' * self.width)
+
+    """improving the public method display"""
     def display(self):
         """
-        Prints the rectangle to stdout using the '#' character.
+         print in stdout the Rectangle instance with the character # by 
+         taking care of x and y
         """
         print('\n' * self.y, end='')
         for i in range(self.height):
             print(' ' * self.x, end='')
             print('#' * self.width)
+
+
+        
 
 
     """ public method __str__"""
