@@ -70,6 +70,39 @@ class Rectangle(Base):
                                                        self.width, self.height)
 
 
+
+    """ public method update"""
+
+    def update(self, *args, **kwargs):
+        """
+        assign an argument to each attribute
+        """
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'width':
+                    self.width = value
+                elif key == 'height':
+                    self.height = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
+                    
+
     @property
     def width(self):
         """Getter method for width."""
