@@ -1,9 +1,17 @@
-""""Base class"""
+""""
+Base class
+"""
 
 class Base:
+    """
+        Private class attribute
+    """
     __nb_objects = 0
 
-    """ Constructor """
+    """
+        Class Constructor
+    """
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
