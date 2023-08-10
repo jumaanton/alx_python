@@ -36,6 +36,17 @@ class Rectangle(Base):
         return self.width * self.height
 
 
+    """ public method display"""
+    def display(self):
+        """
+        Prints the rectangle to stdout using the '#' character.
+        """
+        print('\n' * self.y, end='')
+        for i in range(self.height):
+            print(' ' * self.x, end='')
+            print('#' * self.width)
+
+
     @property
     def width(self):
         """Getter method for width."""
