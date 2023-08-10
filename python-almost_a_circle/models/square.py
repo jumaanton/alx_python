@@ -1,3 +1,5 @@
+""" class square that inherits from rectangle """
+
 from models.rectangle import Rectangle
 
 """ class square that inherits from rectangle """
