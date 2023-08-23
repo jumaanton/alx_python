@@ -22,21 +22,23 @@ def main():
         # Create a cursor
         cursor = db.cursor()
 
-        # filter cities by name of state
-        query = """ 
-        SELECT * FROM cities WHERE BINARY state_id = 
-        (SELECT id FROM states WHERE BINARY name = %s) ORDER BY id ASC
-        """
+        # Create the SQL query with a parameter placeholder
+        query = """SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') FROM cities
+                 JOIN states ON cities.state_id = states.id
+                 WHERE states.name = %s ORDER BY cities.id ASC"""
 
-        # Execute the SQL query with the state name
+        # Execute the SQL query with the state name parameter
         cursor.execute(query, (state_name,))
 
-        # Fetch all the rows
-        rows = cursor.fetchall()
+        # Fetch the result
+        result = cursor.fetchone()
 
         # Display the results
-        for row in rows:
-            print(row)
+        if result and result[0]:
+            print(result[0])
+        else:
+            print("No cities found for the state:", state_name)
+
 
     except MySQLdb.Error as e:
         print("Error connecting to the database:", e)
