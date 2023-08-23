@@ -22,10 +22,8 @@ def main():
         # Create a cursor
         cursor = db.cursor()
 
-        # Create the SQL query with user input
-        query = "SELECT cities.id, cities.name, states.name FROM cities \
-                 JOIN states ON cities.state_id = states.id \
-                 WHERE states.name = %s ORDER BY cities.id ASC"
+        # filter cities by name of state
+        query = "SELECT * FROM cities WHERE BINARY state_id = (SELECT id FROM states WHERE BINARY name = %s) ORDER BY id ASC"
 
         # Execute the SQL query with the state name
         cursor.execute(query, (state_name,))
