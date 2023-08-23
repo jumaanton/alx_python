@@ -19,10 +19,9 @@ def main():
 
         # Create a cursor
         cursor = db.cursor()
-		
-		# Execute the SQL query
-        cursor.execute("SELECT * FROM cities ORDER BY id ASC")
 
+        # Execute the SQL query
+        cursor.execute("SELECT * FROM cities BINARY ORDER BY id ASC")
 
         # Fetch all the rows
         rows = cursor.fetchall()
