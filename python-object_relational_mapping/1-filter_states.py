@@ -22,7 +22,7 @@ def main():
 
         # Filter the rows by name starting with N
         rows = cursor.filter(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+            "SELECT * FROM states WHERE name LIKE 'N' ORDER BY id ASC")
 
         # Display the results
         for row in rows:
