@@ -5,8 +5,11 @@ import MySQLdb
 
 def main():
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(
-            sys.argv[0]))
+        print(
+            "Usage: {} <username> <password> <database> <state_name>".format(
+                sys.argv[0]
+            )
+        )
         sys.exit(1)
 
     username = sys.argv[1]
@@ -16,8 +19,9 @@ def main():
 
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306,
-                             user=username, passwd=password, db=database)
+        db = MySQLdb.connect(
+            host="localhost", port=3306, user=username, passwd=password, db=database
+        )
 
         # Create a cursor
         cursor = db.cursor()
@@ -38,7 +42,6 @@ def main():
             print(result[0])
         else:
             print("No cities found for the state:", state_name)
-
 
     except MySQLdb.Error as e:
         print("Error connecting to the database:", e)
