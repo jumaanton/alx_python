@@ -24,10 +24,8 @@ def main():
 
         # script that takes in the name of a state as an argumant and lists all 
         # cities of that state
-        query = """ 
-        SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id 
-        WHERE BINARY states.name = %s ORDER BY cities.id ASC
-        """
+        query ="SELECT cities.name FROM cities JOIN states ON cities.state_id \
+            = states.id WHERE BINARY states.name = %s ORDER BY cities.id ASC"
 
         # Execute the SQL query with the state name
         cursor.execute(query, (state_name,))
