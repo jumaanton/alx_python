@@ -23,7 +23,10 @@ def main():
         cursor = db.cursor()
 
         # filter cities by name of state
-        query = "SELECT * FROM cities WHERE BINARY state_id = (SELECT id FROM states WHERE BINARY name = %s) ORDER BY id ASC"
+        query = """ 
+        SELECT * FROM cities WHERE BINARY state_id = 
+        (SELECT id FROM states WHERE BINARY name = %s) ORDER BY id ASC
+        """
 
         # Execute the SQL query with the state name
         cursor.execute(query, (state_name,))
