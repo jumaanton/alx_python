@@ -2,6 +2,7 @@
 import sys
 import MySQLdb
 
+
 def main():
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
@@ -13,7 +14,8 @@ def main():
 
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        db = MySQLdb.connect(host="localhost", port=3306,
+                             user=username, passwd=password, db=database)
 
         # Create a cursor
         cursor = db.cursor()
@@ -34,6 +36,7 @@ def main():
         # Close the database connection
         if db:
             db.close()
+
 
 if __name__ == "__main__":
     main()
