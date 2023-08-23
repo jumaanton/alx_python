@@ -22,8 +22,7 @@ def main():
 
         # Execute the SQL query
         cursor.execute(
-            "SELECT cities.id, cities.name, cities.state_id.name FROM cities\
-				 ORDER BY id ASC")
+            "SELECT cities.id, cities.name FROM cities ORDER BY id ASC")
 
         # Fetch all the rows
         rows = cursor.fetchall()
