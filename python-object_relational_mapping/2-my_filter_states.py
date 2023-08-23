@@ -23,7 +23,7 @@ def main():
         cursor = db.cursor()
 
         # Create the SQL query with user input
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
 
         # Execute the SQL query with the state name
         cursor.execute(query, (state_name,))
