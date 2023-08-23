@@ -21,7 +21,8 @@ def main():
         cursor = db.cursor()
 
         # Execute the SQL query
-        cursor.execute("SELECT * FROM cities BINARY ORDER BY id ASC")
+        cursor.execute(
+            "SELECT cities.id, cities.name, state.name FROM cities ORDER BY id ASC")
 
         # Fetch all the rows
         rows = cursor.fetchall()
