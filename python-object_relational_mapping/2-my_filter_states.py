@@ -22,16 +22,19 @@ def main():
         # Create a cursor
         cursor = db.cursor()
 
-        # Create the SQL query with user input
-        query = "SELECT cities.name, FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC"
+        # script that takes in the name of a state as an argumant and lists all 
+        # cities of that state
+        query = """ 
+        SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id 
+        WHERE BINARY states.name = %s ORDER BY cities.id ASC
+        """
 
         # Execute the SQL query with the state name
         cursor.execute(query, (state_name,))
-
         # Fetch all the rows
         rows = cursor.fetchall()
-        city_names = ', '.join([row[0] for row in rows])
-        print(city_names)
+        # Display the results
+        print(", ".join([row[0] for row in rows]))
 
     except MySQLdb.Error as e:
         print("Error connecting to the database:", e)
