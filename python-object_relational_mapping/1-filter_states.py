@@ -21,10 +21,12 @@ def main():
         cursor = db.cursor()
 
         # Filter the rows by name starting with N
-        rows = cursor.filter(
-            "SELECT * FROM states WHERE name LIKE 'N' ORDER BY id ASC")
+        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-        # Display the results
+		# Fetch all the rows
+		rows = cursor.fetchall()
+		
+		# Display the results
         for row in rows:
             print(row)
 
